@@ -71,8 +71,14 @@ public class guenthers_market {
 		System.out.println("The most expensive item was " +currencyFormatter.format(highest));
 		double lowest = lowestIndex(prices);
 		System.out.println("The cheapest item was " +currencyFormatter.format(lowest));
+		double total = 0.00;
+        for (int i = 0; i < orderPrices.size(); i++)
+        {
+            total += orderPrices.get(i);
+        }
+        System.out.println("Your total is: " + currencyFormatter.format(total));
 		
-		scnr.close();
+        scnr.close();
 	}
 
 	private static void fillItemsMap() 
@@ -93,7 +99,7 @@ public class guenthers_market {
 		System.out.println("==============================");
 		for (Map.Entry<String,Double> entry : items.entrySet())
 		{
-			System.out.printf("%-15s %.2f%n", entry.getKey(), entry.getValue());
+			System.out.printf("%-15s %-1s %.2f%n", entry.getKey(),"$", entry.getValue());
 		}
 	}
 	
@@ -151,9 +157,7 @@ public class guenthers_market {
 	{
 		for (int i = 0; i < n.length;i++) 
 		{
-			System.out.printf("%-15s %-10s%n", String.valueOf(n[i]), String.valueOf(p[i]));
+			System.out.printf("%-15s %-1s %-10s%n", String.valueOf(n[i]), "$", String.valueOf(p[i]));
 		}
 	}
 }
-
-//extras: try to figure out quantity instead of having repeats, menu numbers/letters
